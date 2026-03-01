@@ -57,7 +57,7 @@
       <!-- Navbar -->
       <header
         id="main-nav"
-        class="fixed inset-x-0 top-0 z-50 border-b border-black/5 transition-all duration-300 bg-cream/30 py-4"
+        class="fixed inset-x-0 top-0 z-50 border-b border-black/5 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm py-4"
       >
         <div
           class="mx-auto flex max-w-6xl items-center justify-between px-4 md:px-6 lg:px-8"
@@ -107,14 +107,13 @@
                 <a href="index.html" class="text-warm-gray hover:text-charcoal transition-colors">RU</a>
                 <span class="font-bold text-charcoal">EN</span>
               </div>
-              
           </nav>
 
           <!-- Desktop CTA -->
           <div class="hidden md:flex">
             <a
               href="#contact"
-              class="inline-flex items-center justify-center rounded-full bg-rich-brown px-6 py-2.5 text-sm font-medium text-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-0.5 hover:bg-[#382412] hover:shadow-xl"
+              class="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-800"
             >
               Schedule a Private Viewing
             </a>
@@ -142,7 +141,7 @@
         <!-- Mobile nav -->
         <div
           id="mobile-menu"
-          class="hidden border-t border-black/5 bg-cream-soft/95 px-4 pb-4 pt-2 md:hidden"
+          class="hidden border-t border-black/5 bg-white/95 backdrop-blur-md px-4 pb-4 pt-2 md:hidden"
         >
           <nav class="flex flex-col gap-3 text-sm">
             <a
@@ -167,7 +166,7 @@
             >
             <a
               href="#contact"
-              class="mt-2 inline-flex items-center justify-center rounded-full bg-rich-brown px-4 py-2 text-sm font-medium text-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-0.5 hover:bg-[#382412] hover:shadow-xl"
+              class="mt-2 inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-800"
             >
               Schedule a Private Viewing
             </a>
@@ -738,34 +737,34 @@
       </footer>
     </div>
 
-    <!-- Simple mobile menu logic -->
     <script>
       const toggle = document.getElementById("mobile-menu-toggle");
       const menu = document.getElementById("mobile-menu");
+      const header = document.getElementById("main-nav");
+
+      const baseClasses = "fixed inset-x-0 top-0 z-50 border-b border-black/5 transition-all duration-300 bg-white/95 backdrop-blur-md";
+      const scrolledClasses = "shadow-md py-2";
+      const unscrolledClasses = "shadow-sm py-4";
+
+      function updateHeader() {
+        if (!header) return;
+        const isMenuOpen = menu && !menu.classList.contains("hidden");
+        if (window.scrollY > 50 || isMenuOpen) {
+          header.className = `${baseClasses} ${scrolledClasses}`;
+        } else {
+          header.className = `${baseClasses} ${unscrolledClasses}`;
+        }
+      }
+
       if (toggle && menu) {
         toggle.addEventListener("click", () => {
           menu.classList.toggle("hidden");
+          updateHeader();
         });
       }
-    </script>
 
-    <!-- Smart sticky navbar scroll logic -->
-    <script>
-      const header = document.getElementById('main-nav');
-      const baseClasses = "fixed inset-x-0 top-0 z-50 border-b border-black/5 transition-all duration-300";
-      const scrolledClasses = "bg-white/95 backdrop-blur-md shadow-md py-2";
-      const unscrolledClasses = "bg-cream/30 py-4";
-      function handleNavScroll() {
-        if (!header) return;
-        if (window.scrollY > 50) {
-          header.className = baseClasses + " " + scrolledClasses;
-        } else {
-          header.className = baseClasses + " " + unscrolledClasses;
-        }
-      }
-      window.addEventListener('scroll', handleNavScroll);
-      // Initial state on page load
-      handleNavScroll();
+      window.addEventListener('scroll', updateHeader);
+      updateHeader();
     </script>
   </body>
 </html>
