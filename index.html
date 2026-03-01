@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Realty — Элитная недвижимость</title>
+
+    <!-- Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS via CDN with custom config -->
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              colors: {
+                cream: "#f5efe6",
+                "cream-soft": "#f9f4ec",
+                gold: "#d4af37",
+                "gold-soft": "#e8d4a2",
+                charcoal: "#222222",
+                "warm-gray": "#4b4b4b",
+                "rich-brown": "#4A3018",
+              },
+              fontFamily: {
+                serif: ['"Playfair Display"', "serif"],
+                sans: ["Inter", "system-ui", "sans-serif"],
+              },
+              boxShadow: {
+                "soft-lg":
+                  "0 24px 60px rgba(15, 23, 42, 0.08)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-cream-soft text-charcoal font-sans antialiased">
+    <!-- Page wrapper -->
+    <div class="min-h-screen flex flex-col">
+      <!-- Navbar -->
+      <header
+        class="fixed inset-x-0 top-0 z-30 border-b border-black/5 bg-cream/80 backdrop-blur-md"
+      >
+        <div
+          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6 lg:px-8"
+        >
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <div
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 bg-white text-sm font-semibold tracking-[0.16em]"
+            >
+              AR
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-serif text-lg font-semibold tracking-[0.22em] uppercase"
+              >
+                Apex Realty
+              </span>
+              <span class="text-xs text-warm-gray/70">
+                Элитная недвижимость
+              </span>
+            </div>
+          </div>
+
+          <!-- Desktop nav -->
+          <nav class="hidden items-center gap-10 text-sm md:flex">
+            <a
+              href="#properties"
+              class="text-warm-gray hover:text-charcoal transition-colors"
+              >Объекты</a
+            >
+            <a
+              href="#services"
+              class="text-warm-gray hover:text-charcoal transition-colors"
+              >Услуги</a
+            >
+            <a
+              href="#about"
+              class="text-warm-gray hover:text-charcoal transition-colors"
+              >О нас</a
+            >
+            <a
+              href="#contact"
+              class="text-warm-gray hover:text-charcoal transition-colors"
+              >Контакты</a
+            >
+          </nav>
+
+          <!-- Desktop CTA -->
+          <div class="hidden md:flex">
+            <a
+              href="#contact"
+              class="inline-flex items-center justify-center rounded-full bg-rich-brown px-6 py-2.5 text-sm font-medium text-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-0.5 hover:bg-[#382412] hover:shadow-xl"
+            >
+              Записаться на просмотр
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button
+            id="mobile-menu-toggle"
+            class="inline-flex items-center justify-center rounded-full border border-black/5 bg-white/80 p-2 text-warm-gray shadow-sm backdrop-blur md:hidden"
+            aria-label="Открыть меню"
+          >
+            <svg
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile nav -->
+        <div
+          id="mobile-menu"
+          class="hidden border-t border-black/5 bg-cream-soft/95 px-4 pb-4 pt-2 md:hidden"
+        >
+          <nav class="flex flex-col gap-3 text-sm">
+            <a
+              href="#properties"
+              class="py-1 text-warm-gray hover:text-charcoal transition-colors"
+              >Объекты</a
+            >
+            <a
+              href="#services"
+              class="py-1 text-warm-gray hover:text-charcoal transition-colors"
+              >Услуги</a
+            >
+            <a
+              href="#about"
+              class="py-1 text-warm-gray hover:text-charcoal transition-colors"
+              >О нас</a
+            >
+            <a
+              href="#contact"
+              class="py-1 text-warm-gray hover:text-charcoal transition-colors"
+              >Контакты</a
+            >
+            <a
+              href="#contact"
+              class="mt-2 inline-flex items-center justify-center rounded-full bg-rich-brown px-4 py-2 text-sm font-medium text-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-0.5 hover:bg-[#382412] hover:shadow-xl"
+            >
+              Записаться на просмотр
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-1 pt-24 md:pt-28">
+        <!-- Hero -->
+        <section class="bg-cream-soft overflow-hidden">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+              <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                
+                <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+                  
+                  <div class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-white/70 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-warm-gray">
+                    Элитная недвижимость
+                    <span class="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_0_3px_rgba(212,175,55,0.2)]"></span>
+                    Конфиденциальный подход
+                  </div>
+                  
+                  <h1 class="font-serif text-4xl leading-tight sm:text-5xl md:text-6xl text-charcoal">
+                    Роскошь, <br class="hidden lg:block" />которую вы заслуживаете
+                  </h1>
+                  
+                  <p class="max-w-lg text-base leading-relaxed text-warm-gray sm:text-lg">
+                    Apex Realty подбирает редкие объекты премиальной и ультрапремиальной недвижимости в лучших локациях страны — особняки, пентхаусы, виллы у моря и инвестиционные проекты с безупречной репутацией.
+                  </p>
+          
+                  <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                    <a href="#properties" class="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-xl">
+                      Смотреть объекты
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-widest text-warm-gray hover:text-charcoal transition-colors">
+                      Связаться с брокером
+                      <span class="flex h-8 w-8 items-center justify-center rounded-full border border-cream">
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M7 17L17 7" />
+                          <path d="M7 7h10v10" />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+          
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-cream w-full text-sm text-warm-gray">
+                    <div>
+                      <div class="font-bold text-xl text-charcoal">15+ лет</div>
+                      <div class="mt-1 leading-snug">опыта на рынке элитной недвижимости</div>
+                    </div>
+                    <div>
+                      <div class="font-bold text-xl text-charcoal">300+</div>
+                      <div class="mt-1 leading-snug">сделок с полным сопровождением</div>
+                    </div>
+                    <div>
+                      <div class="font-bold text-xl text-charcoal">100%</div>
+                      <div class="mt-1 leading-snug">лично проверенные объекты</div>
+                    </div>
+                  </div>
+                  
+                </div>
+          
+                <div class="w-full lg:w-1/2">
+                  <div class="relative overflow-hidden rounded-3xl shadow-2xl aspect-[4/3] w-full border-4 border-white/50">
+                    <img 
+                      src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200" 
+                      alt="Luxury Villa Interior" 
+                      class="absolute inset-0 w-full h-full object-cover" 
+                    />
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+        <!-- Services / Features -->
+        <section
+          id="services"
+          class="border-y border-black/5 bg-cream/70"
+        >
+          <div
+            class="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8"
+          >
+            <div
+              class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"
+            >
+              <div>
+                <h2
+                  class="font-serif text-2xl sm:text-3xl md:text-4xl"
+                >
+                  Компетенции Apex Realty
+                </h2>
+                <p
+                  class="mt-3 max-w-md text-sm text-warm-gray sm:text-base"
+                >
+                  Закрытые предложения, тонкое понимание рынка и персональное
+                  сопровождение на каждом этапе — от первой консультации до
+                  передачи ключей.
+                </p>
+              </div>
+              <p
+                class="max-w-sm text-xs text-warm-gray/80 sm:text-sm"
+              >
+                Мы работаем только с тщательно проверенными объектами и
+                собственниками, обеспечивая юридическую чистоту и максимальный
+                комфорт сделки.
+              </p>
+            </div>
+
+            <div
+              class="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3"
+            >
+              <!-- Инвестиции -->
+              <article
+                class="group flex flex-col rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition-transform transition-shadow hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-soft-lg"
+              >
+                <div
+                  class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cream-soft text-gold shadow-inner"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 17l6-6 4 4 8-8" />
+                    <path d="M14 7h7v7" />
+                  </svg>
+                </div>
+                <h3 class="font-serif text-xl">Инвестиции</h3>
+                <p class="mt-2 text-sm text-warm-gray">
+                  Подбор объектов с высоким потенциалом роста и стабильной
+                  доходностью, в том числе в девелоперских проектах на ранних
+                  стадиях.
+                </p>
+                <p
+                  class="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-warm-gray/80"
+                >
+                  Стратегия · Аналитика · Сопровождение
+                </p>
+              </article>
+
+              <!-- Продажа -->
+              <article
+                class="group flex flex-col rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition-transform transition-shadow hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-soft-lg"
+              >
+                <div
+                  class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cream-soft text-gold shadow-inner"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 12 12 4l8 8"
+                    />
+                    <path
+                      d="M6 10v10h5v-5h2v5h5V10"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-serif text-xl">Продажа</h3>
+                <p class="mt-2 text-sm text-warm-gray">
+                  Экспертная оценка, подготовка объекта к выводу на рынок и
+                  точечное продвижение среди релевантных покупателей.
+                </p>
+                <p
+                  class="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-warm-gray/80"
+                >
+                  Оценка · Стратегия · Сделка
+                </p>
+              </article>
+
+              <!-- Аренда -->
+              <article
+                class="group flex flex-col rounded-3xl border border-black/5 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition-transform transition-shadow hover:-translate-y-1.5 hover:border-gold/60 hover:shadow-soft-lg"
+              >
+                <div
+                  class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-cream-soft text-gold shadow-inner"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="3"
+                      y="8"
+                      width="18"
+                      height="13"
+                      rx="2"
+                    />
+                    <path d="M7 8V5a5 5 0 0 1 10 0v3" />
+                  </svg>
+                </div>
+                <h3 class="font-serif text-xl">Аренда</h3>
+                <p class="mt-2 text-sm text-warm-gray">
+                  Премиальные квартиры, пентхаусы и загородные резиденции для
+                  долгосрочной и краткосрочной аренды с сервисом премиум‑класса.
+                </p>
+                <p
+                  class="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-warm-gray/80"
+                >
+                  Подбор · Проверка · Управление
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Property Grid -->
+        <section
+          id="properties"
+          class="bg-cream-soft"
+        >
+          <div
+            class="mx-auto max-w-6xl px-4 py-14 md:px-6 md:py-18 lg:px-8"
+          >
+            <div
+              class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
+            >
+              <div>
+                <h2
+                  class="font-serif text-2xl sm:text-3xl md:text-4xl"
+                >
+                  Избранные объекты
+                </h2>
+                <p
+                  class="mt-3 max-w-md text-sm text-warm-gray sm:text-base"
+                >
+                  Лаконичная подборка актуальных объектов из закрытой базы
+                  Apex Realty. Полный каталог доступен по запросу.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-warm-gray hover:text-charcoal"
+              >
+                Запросить полный каталог
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full border border-black/10"
+                >
+                  <svg
+                    class="h-3.5 w-3.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            <div
+              class="mt-10 grid gap-7 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              <!-- Property card 1 -->
+              <article
+                class="group flex flex-col overflow-hidden rounded-3xl border border-black/5 bg-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-2 hover:shadow-2xl relative"
+              >
+                <div
+                  class="relative overflow-hidden aspect-[4/3] bg-cream-soft w-full h-full"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+                    alt="Contemporary villa exterior"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 z-10 flex flex-col items-center justify-center before:content-[''] before:absolute before:inset-0 before:bg-black/60 before:z-[-1] bg-transparent p-6 text-center">
+                    <h3 class="text-lg font-serif text-white drop-shadow font-semibold mb-2">Современная вилла у моря</h3>
+                    <p class="text-sm text-white/85 drop-shadow mb-1">Вид на океан, приватный бассейн, смарт‑автоматизация. 480 м², участок 16 соток.</p>
+                    <span class="inline-block rounded-full bg-charcoal/80 backdrop-blur-sm text-white border border-gold/50 text-xs px-4 py-1 mt-3 font-medium shadow">340 млн ₽</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Property card 2 -->
+              <article
+                class="group flex flex-col overflow-hidden rounded-3xl border border-black/5 bg-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-2 hover:shadow-2xl relative"
+              >
+                <div
+                  class="relative overflow-hidden aspect-[4/3] bg-cream-soft w-full h-full"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=800&q=80"
+                    alt="High-altitude luxury apartment view"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 z-10 flex flex-col items-center justify-center before:content-[''] before:absolute before:inset-0 before:bg-black/60 before:z-[-1] bg-transparent p-6 text-center">
+                    <h3 class="text-lg font-serif text-white drop-shadow font-semibold mb-2">Пентхаус в центре Москвы</h3>
+                    <p class="text-sm text-white/85 drop-shadow mb-1">Видовой этаж, собственная терраса, потолки 5 м, дизайнерская отделка.</p>
+                    <span class="inline-block rounded-full bg-charcoal/80 backdrop-blur-sm text-white border border-gold/50 text-xs px-4 py-1 mt-3 font-medium shadow">210 млн ₽</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Property card 3 -->
+              <article
+                class="group flex flex-col overflow-hidden rounded-3xl border border-black/5 bg-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-2 hover:shadow-2xl relative"
+              >
+                <div
+                  class="relative overflow-hidden aspect-[4/3] bg-cream-soft w-full h-full"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80"
+                    alt="Classic historical European building facade"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 z-10 flex flex-col items-center justify-center before:content-[''] before:absolute before:inset-0 before:bg-black/60 before:z-[-1] bg-transparent p-6 text-center">
+                    <h3 class="text-lg font-serif text-white drop-shadow font-semibold mb-2">Резиденция с приватным бассейном</h3>
+                    <p class="text-sm text-white/85 drop-shadow mb-1">Уникальный ландшафтный дизайн, панорамное остекление, спа-зона и открытый бассейн с подогревом.</p>
+                    <span class="inline-block rounded-full bg-charcoal/80 backdrop-blur-sm text-white border border-gold/50 text-xs px-4 py-1 mt-3 font-medium shadow">525 млн ₽</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Our Experts / Team Section -->
+        <section
+          id="team"
+          class="bg-cream-soft"
+        >
+          <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+              <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl mb-3">Ваши персональные брокеры</h2>
+              <p class="text-sm sm:text-base text-warm-gray/90">Опыт, конфиденциальность и безупречная репутация на рынке.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <!-- Card 1 -->
+              <div class="group bg-white rounded-3xl border border-black/5 shadow-soft-lg p-6 flex flex-col items-center transition-shadow hover:shadow-2xl">
+                <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-cream-soft flex-shrink-0">
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+                    alt="Александр Волков"
+                    class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div class="flex-1 flex flex-col items-center mt-4">
+                  <div class="font-serif text-xl">Александр Волков</div>
+                  <div class="text-sm text-gold mt-1">Управляющий партнер</div>
+                  <div class="text-sm text-warm-gray mt-3 leading-relaxed text-center">Более 10 лет опыта работы с VIP-клиентами и закрытыми сделками.</div>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="group bg-white rounded-3xl border border-black/5 shadow-soft-lg p-6 flex flex-col items-center transition-shadow hover:shadow-2xl">
+                <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-cream-soft flex-shrink-0">
+                  <img
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+                    alt="Елена Смирнова"
+                    class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div class="flex-1 flex flex-col items-center mt-4">
+                  <div class="font-serif text-xl">Елена Смирнова</div>
+                  <div class="text-sm text-gold mt-1">Эксперт по загородной недвижимости</div>
+                  <div class="text-sm text-warm-gray mt-3 leading-relaxed text-center">Лучшие предложения премиум-класса на побережье и в Подмосковье для самых требовательных клиентов.</div>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="group bg-white rounded-3xl border border-black/5 shadow-soft-lg p-6 flex flex-col items-center transition-shadow hover:shadow-2xl">
+                <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-cream-soft flex-shrink-0">
+                  <img
+                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80"
+                    alt="Михаил Романов"
+                    class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div class="flex-1 flex flex-col items-center mt-4">
+                  <div class="font-serif text-xl">Михаил Романов</div>
+                  <div class="text-sm text-gold mt-1">Специалист по сделкам и праву</div>
+                  <div class="text-sm text-warm-gray mt-3 leading-relaxed text-center">Гарантия юридической чистоты и прозрачности на каждом этапе сделки.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About -->
+        <section
+          id="about"
+          class="border-y border-black/5 bg-cream"
+        >
+          <div
+            class="mx-auto max-w-6xl px-4 py-14 md:grid md:grid-cols-2 md:gap-14 md:px-6 md:py-20 lg:px-8"
+          >
+            <!-- Text -->
+            <div class="space-y-6">
+              <p
+                class="text-xs font-medium uppercase tracking-[0.22em] text-warm-gray/80"
+              >
+                О агентстве
+              </p>
+              <h2
+                class="font-serif text-2xl sm:text-3xl md:text-4xl"
+              >
+                Деликатный сервис для требовательных клиентов
+              </h2>
+              <p class="text-sm text-warm-gray sm:text-base">
+                Apex Realty — это бутик‑агентство элитной недвижимости, которое
+                работает с ограниченным количеством клиентов, чтобы уделять
+                максимум внимания каждой сделке. Мы верим в личный подход,
+                прозрачность и высочайший стандарт сервиса.
+              </p>
+              <p class="text-sm text-warm-gray sm:text-base">
+                В нашей команде — эксперты с опытом в девелопменте, инвестициях,
+                архитектуре и праве. Это позволяет нам сопровождать клиентов
+                комплексно: от первой идеи до реализации и управления
+                объектом.
+              </p>
+              <div
+                class="grid grid-cols-2 gap-4 text-xs text-warm-gray/90 sm:text-sm"
+              >
+                <div>
+                  <div class="text-[11px] uppercase tracking-[0.18em]">
+                    География
+                  </div>
+                  <div class="mt-1 font-medium text-charcoal">
+                    Москва · Санкт‑Петербург · Черноморское побережье
+                  </div>
+                </div>
+                <div>
+                  <div class="text-[11px] uppercase tracking-[0.18em]">
+                    Формат работы
+                  </div>
+                  <div class="mt-1 font-medium text-charcoal">
+                    Конфиденциальные прямые сделки и закрытые показы
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image -->
+            <div
+              class="relative mt-10 md:mt-0"
+            >
+              <div
+                class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-charcoal/5 shadow-soft-lg"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80"
+                  alt="Minimalist bright living room interior"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact / Lead Form in footer area -->
+        <section
+          id="contact"
+          class="bg-slate-900 text-slate-300"
+        >
+          <div
+            class="mx-auto max-w-6xl px-4 py-14 md:flex md:items-start md:justify-between md:gap-12 md:px-6 md:py-18 lg:px-8"
+          >
+            <!-- Left content -->
+            <div class="max-w-md space-y-5 mx-auto text-center">
+              <p
+                class="text-xs font-medium uppercase tracking-[0.22em] text-slate-400"
+              >
+                Контакты
+              </p>
+              <h2
+                class="font-serif text-2xl sm:text-3xl md:text-4xl text-white"
+              >
+                Запланируйте приватный просмотр
+              </h2>
+              <p class="text-sm text-slate-400 sm:text-base">
+                Оставьте свои контактные данные — персональный брокер Apex
+                Realty свяжется с вами, предложит релевантные объекты и
+                организует конфиденциальный просмотр в удобное для вас время.
+              </p>
+              <div class="space-y-2 text-sm text-slate-400">
+                <p>
+                  Телефон:
+                  <span class="font-medium text-white">
+                    +7 (000) 000‑00‑00
+                  </span>
+                </p>
+                <p>
+                  Email:
+                  <span class="font-medium text-white">
+                    hello@apex-realty.ru
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <div class="mt-10 w-full max-w-md md:mt-0 mx-auto">
+              <form
+                class="space-y-4 rounded-3xl border border-slate-700 bg-slate-800 p-5 shadow-soft-lg text-center"
+              >
+                <div class="space-y-1.5 text-left">
+                  <label
+                    for="name"
+                    class="text-xs font-medium uppercase tracking-[0.18em] text-slate-300"
+                  >
+                    Имя
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Как к вам обращаться"
+                    class="w-full rounded-2xl border border-slate-700 bg-slate-800 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                  />
+                </div>
+                <div class="space-y-1.5 text-left">
+                  <label
+                    for="phone"
+                    class="text-xs font-medium uppercase tracking-[0.18em] text-slate-300"
+                  >
+                    Телефон
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    placeholder="+7 (___) ___‑__‑__"
+                    class="w-full rounded-2xl border border-slate-700 bg-slate-800 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                  />
+                </div>
+                <div class="space-y-1.5 text-left">
+                  <label
+                    for="comment"
+                    class="text-xs font-medium uppercase tracking-[0.18em] text-slate-300"
+                  >
+                    Предпочтения по объекту
+                  </label>
+                  <textarea
+                    id="comment"
+                    rows="3"
+                    placeholder="Например: пентхаус в центре, 3 спальни, бюджет до 120 млн ₽"
+                    class="w-full rounded-2xl border border-slate-700 bg-slate-800 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-400 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-rich-brown px-6 py-3 text-sm font-medium text-white shadow-soft-lg transition-transform transition-shadow hover:-translate-y-0.5 hover:bg-[#382412] hover:shadow-xl"
+                >
+                  Записаться на просмотр
+                </button>
+
+                <p
+                  class="text-[11px] leading-relaxed text-slate-400 text-center"
+                >
+                  Отправляя форму, вы соглашаетесь на обработку персональных
+                  данных и подтверждаете, что ознакомлены с
+                  политикой конфиденциальности Apex Realty.
+                </p>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Bottom footer -->
+      <footer class="border-t border-white/10 bg-slate-950 text-slate-300">
+        <div
+          class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 text-xs md:flex-row md:items-center md:justify-between md:px-6 lg:px-8 text-center md:text-center"
+        >
+          <p class="w-full md:w-auto text-center text-slate-300">© 2026 Apex Realty. Все права защищены.</p>
+          <div class="flex flex-wrap gap-4 w-full justify-center md:justify-center text-center">
+            <span class="text-slate-300">Политика конфиденциальности</span>
+            <span class="text-slate-300">Оферта не является публичной.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Simple mobile menu logic -->
+    <script>
+      const toggle = document.getElementById("mobile-menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      }
+    </script>
+  </body>
+</html>
